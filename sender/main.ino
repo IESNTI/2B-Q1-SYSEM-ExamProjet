@@ -60,7 +60,7 @@ void setup() {
     Serial.println(0x71, HEX);
     myIMU.initMPU9250();
 
-    xxtea.setKey("Hello Password");
+    xxtea.setKey("Tigrou007");
 }
 
 void loop() {

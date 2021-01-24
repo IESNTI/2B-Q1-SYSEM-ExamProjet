@@ -72,7 +72,7 @@ void setup() {
     pinMode(PinGateMosfet, OUTPUT);
     pinMode(PinPWMFan, OUTPUT);
 
-    xxtea.setKey("Hello Password");
+    xxtea.setKey("Tigrou007");
 
     ESP8266.println("AT+CWMODE=2");
     waitForOk();
