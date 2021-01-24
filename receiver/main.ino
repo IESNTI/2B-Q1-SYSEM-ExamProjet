@@ -104,7 +104,6 @@ void inverseFanState() {
 void loop() {
     // try to parse packet
     int packetSize = LoRa.parsePacket();
-    boolean previousStateFan = false;
     if (packetSize) {
         // received a packet
         // Serial.print("Received packet '");
