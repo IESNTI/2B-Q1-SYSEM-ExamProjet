@@ -19,7 +19,7 @@
 #define PinButtonInterrupt 3
 
 float temperature = 0;
-boolean fanOn = true;
+volatile boolean fanOn = true;
 
 SoftwareSerial ESP8266(ESPrxPin, ESPtxPin);
 Adafruit_SSD1306 display(OLEDWidth, OLEDHeight);
@@ -84,8 +84,12 @@ void setup() {
 }
 
 int temperatureIntoPercentFan(float temperature) {
-    return ((100) - 100.0 / (TempMaxPower - TempTrigger) *
-                        (TempMaxPower - temperature));
+    if (temperature >= TempMaxPower) {
+        return(100);
+    }
+    else {
+        return ((100) - 100.0 / (TempMaxPower - TempTrigger) * (TempMaxPower - temperature));
+    }
 }
 
 void rotationPercentFan(int percent) {
